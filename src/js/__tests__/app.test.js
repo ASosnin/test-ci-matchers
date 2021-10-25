@@ -17,3 +17,21 @@ test('Проверка сортировки героев по уровню жи�
 
   expect(result).toEqual(expected);
 });
+
+test('Проверка на то, что тест toBe не сработает', () => {
+  const unsortedPeople = [
+    { name: 'мечник', health: 10 },
+    { name: 'маг', health: 100 },
+    { name: 'лучник', health: 80 },
+  ];
+
+  const expected = [
+    { name: 'маг', health: 100 },
+    { name: 'лучник', health: 80 },
+    { name: 'мечник', health: 10 },
+  ];
+
+  const result = sortPeopleByHealth(unsortedPeople);
+
+  expect(result).not.toBe(expected);
+});
